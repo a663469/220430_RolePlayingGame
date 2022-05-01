@@ -15,7 +15,8 @@ public class Hero extends Characters implements Attackable{
     }
 
     @Override
-    public boolean attack() {
+    public boolean attack(Characters characters) {
+        characters.damage(this.getPower());
         return false;
     }
 

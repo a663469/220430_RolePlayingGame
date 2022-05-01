@@ -1,6 +1,6 @@
 package main;
 
-public abstract class Characters {
+public abstract class Characters implements Attackable{
     private String name;
     private int health;
     private int gold;
@@ -51,5 +51,15 @@ public abstract class Characters {
 
     public int getPower() {
         return power;
+    }
+
+    public void damage(int d) {
+        if(health - d >= 0) {
+            health = health - d;
+            System.out.println("Damage -" + d);
+        } else {
+            System.out.println("Damage -" + health);
+            health = 0;
+        }
     }
 }

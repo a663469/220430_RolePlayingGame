@@ -1,7 +1,9 @@
 package main;
 
 public interface Attackable {
-    public boolean attack();
+    //public boolean attack();
+
+    boolean attack(Characters characters);
 
     /* В качестве дополнительной задачи самостоятельно продумайте
     и реализуйте логику критических ударов (например, с какой-то
