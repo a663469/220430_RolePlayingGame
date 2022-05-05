@@ -23,7 +23,7 @@ public class Hero extends Characters implements Attackable {
         if (characters.damage(this.getPower() * critical)) {
             if(characters.getHealth() == 0) {
                 this.addExperience(10);
-                this.addGold(characters.withdrawGold());
+                this.addGold(characters.withdrawAllGold());
             } else {
                 this.addExperience(1);
             }

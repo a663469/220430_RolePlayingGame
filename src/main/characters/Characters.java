@@ -39,6 +39,19 @@ public abstract class Characters implements Attackable {
         return health;
     }
 
+    public boolean addHealth(int health) {
+        if(this.health != 100 && this.health != 0) {
+            if (this.health + health < 100) {
+                this.health += health;
+            } else {
+                this.health = 100;
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public int getGold() {
         return gold;
     }
@@ -65,10 +78,19 @@ public abstract class Characters implements Attackable {
         return true;
     }
 
-    public int withdrawGold() {
+    public int withdrawAllGold() {
         int x = gold;
         gold = 0;
         return x;
+    }
+
+    public int withdrawGold(int price) {
+        if(this.gold >= price) {
+            this.gold -= price;
+            return price;
+        } else {
+            return 0;
+        }
     }
 
     public boolean damage(int d) {
