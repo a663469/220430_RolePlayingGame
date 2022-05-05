@@ -60,6 +60,17 @@ public abstract class Characters implements Attackable {
         return true;
     }
 
+    public boolean addGold(int x) {
+        gold += x;
+        return true;
+    }
+
+    public int withdrawGold() {
+        int x = gold;
+        gold = 0;
+        return x;
+    }
+
     public boolean damage(int d) {
         boolean retVal = (health > 0);
         if(health - d >= 0) {
