@@ -1,6 +1,7 @@
 package main;
 
-import java.io.InputStream;
+import main.characters.Hero;
+
 import java.util.Scanner;
 
 public class Main {

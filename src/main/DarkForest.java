@@ -1,5 +1,8 @@
 package main;
 
+import main.characters.Hero;
+import main.characters.Skeleton;
+
 public class DarkForest implements Runnable{
     Hero hero;
 

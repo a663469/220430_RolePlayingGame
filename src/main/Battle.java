@@ -1,5 +1,7 @@
 package main;
 
+import main.characters.Characters;
+
 import java.util.Random;
 
 public class Battle implements Runnable {
