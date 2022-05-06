@@ -1,5 +1,7 @@
 package main.characters;
 
+import java.util.Random;
+
 public abstract class Characters implements Attackable {
     private String name;
     private int health;
@@ -70,6 +72,12 @@ public abstract class Characters implements Attackable {
 
     public boolean addExperience(int x) {
         experience += x;
+        //level up!
+        if(experience > 100) {
+            experience -= 100;
+            power += 10;
+            level++;
+        }
         return true;
     }
 
@@ -95,13 +103,18 @@ public abstract class Characters implements Attackable {
 
     public boolean damage(int d) {
         boolean retVal = (health > 0);
-        if(health - d >= 0) {
-            health = health - d;
-            System.out.println("Damage -" + d);
+        if((new Random()).nextInt(200) > (this.dexterity + this.experience)) {
+            if (health - d >= 0) {
+                health = health - d;
+                System.out.println("Damage -" + d);
+            } else {
+                System.out.println("Damage -" + health);
+                health = 0;
+            }
         } else {
-            System.out.println("Damage -" + health);
-            health = 0;
+            System.out.println("Missed!!!");
         }
+        System.out.println();
         return retVal;
     }
 }

@@ -23,6 +23,13 @@ public class Battle implements Runnable {
         boolean move = new Random().nextBoolean();
 
         while (chr1.getHealth() > 0 && chr2.getHealth() > 0) {
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             if(move) {
                 System.out.println(chr1.getName() + " attacking  " + chr2.getName());
                 chr1.attack(chr2);

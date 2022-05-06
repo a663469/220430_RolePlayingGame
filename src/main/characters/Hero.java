@@ -20,6 +20,11 @@ public class Hero extends Characters implements Attackable {
     public boolean attack(Characters characters) {
         int nxt = (new Random()).nextInt(100);
         int critical  = nxt < this.getDexterity() + this.getExperience() ? 2 : 1;
+
+        if(critical > 1) {
+            System.out.println("Critical attack!!! x" + critical);
+        }
+
         if (characters.damage(this.getPower() * critical)) {
             if(characters.getHealth() == 0) {
                 this.addExperience(10);

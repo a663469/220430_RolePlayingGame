@@ -1,7 +1,10 @@
 package main;
 
+import main.characters.Goblin;
 import main.characters.Hero;
 import main.characters.Skeleton;
+
+import java.util.Random;
 
 public class DarkForest implements Runnable{
     Hero hero;
@@ -18,7 +21,7 @@ public class DarkForest implements Runnable{
     public void run() {
         welcome();
         try {
-            Thread thread = new Thread(new Battle(hero, new Skeleton()));
+            Thread thread = new Thread(new Battle(hero, (new Random().nextBoolean()) ? new Skeleton() : new Goblin()));
             thread.start();
             thread.join();
         } catch (Exception e) {
