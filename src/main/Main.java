@@ -58,6 +58,10 @@ public class Main {
                     continue;
                 }
             }
+            if(hero.getHealth() == 0) {
+                new GameOver(hero);
+                return;
+            }
         }
     }
 }
